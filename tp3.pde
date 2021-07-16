@@ -21,7 +21,7 @@ void draw() {
   if (iniciar==false) {
     fill(random(0, 255), random(0, 255), random(0, 255));
     image(presentacion, 0, 0, width, height);
-    text("ILUSIÓN OPTICA", width/2, height/6);
+    text("ILUSIÓN ÓPTICA", width/2, height/6);
     fill(255);
     textFont(miTipografia, 25);
     text("INSTRUCCIONES", width/5, height/3);
@@ -35,7 +35,6 @@ void draw() {
     textFont(miTipografia, 27);
     fill(255);
     text("COMENZAR", 480, 330);
-  
   }
 
   ellipseMode(CENTER);
@@ -71,7 +70,7 @@ void draw() {
   if (click==false && clickfijado==true &&contadorClick >=0 && iniciar2==true ) {
     colorRect= color(random(0, 90), random(0, 90), random(0, 90));
   }
-  if (clickfijado==false && click==true) {
+  if (clickfijado==false && click==true && contadorClick >2) {
     colorRect= colorfijado;
   } else if (click==false && clickfijado==true) {
     colorRect= color(random(0, 90), random(0, 90), random(0, 90));
@@ -94,10 +93,22 @@ void mouseClicked() {
   if (iniciar==false && mouseX >380 && mouseX<380+200 && mouseY >295 && mouseY <295+50) {
     iniciar=true;
   }
-  if(iniciar==true && contadorClick>1){
-   iniciar2=true; 
+  if (iniciar==true && contadorClick>1) {
+    iniciar2=true;
   }
+ 
 }
-
-void keyPressed() {
+   void keyPressed(){
+ 
+    if (key=='R' || key=='r') {
+    colorRect=0;
+    click=true;
+    contadorClick=0;
+  }
+    if (key=='I' || key=='i') {
+    iniciar=false;
+  }
+  
+  
+  
 }
