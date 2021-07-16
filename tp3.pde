@@ -107,6 +107,7 @@ void mouseClicked() {
   }
     if (key=='I' || key=='i') {
     iniciar=false;
+    contadorClick=0;
   }
   
   
